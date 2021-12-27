@@ -1,0 +1,18 @@
+.auth-page-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	background-image: url(../../static/assets/loginImg.jpg);
+
+	.auth-page-form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #45a29e;
+		padding: 50px;
+		box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+	}
+}
