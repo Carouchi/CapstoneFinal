@@ -26,7 +26,7 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<div className="">
+			<div className="login-form">
 				<h1>LOGIN</h1>
 				<form onSubmit={this.handleSubmit}>
 					<input
@@ -45,8 +45,8 @@ export default class Login extends Component {
 						onChange={this.handleChange}
 					/>
 
-					<div>
-						<button type="submit">Login</button>
+					<div className="login-button">
+						<button type="submit">Submit</button>
 					</div>
 				</form>
 			</div>

@@ -11,8 +11,60 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		border-radius: 15px;
 		background-color: #45a29e;
 		padding: 50px;
 		box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+		border: 2px solid black;
+	}
+}
+
+.login-form {
+	padding: 20px;
+
+	h1 {
+		display: flex;
+		font-size: 60px;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 25px;
+	}
+
+	input {
+		display: flex;
+		flex-direction: row;
+		font-size: 20px;
+		padding: 5px;
+		cursor: pointer;
+		outline: none;
+		border: 1px solid darkcyan;
+		border-radius: 10px;
+		margin-bottom: 20px;
+	}
+
+	.login-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: 20px;
+
+		button {
+			font-size: 35px;
+			color: black;
+			background-color: white;
+			cursor: pointer;
+			border: none;
+			padding: 10px;
+			border-radius: 15px;
+			margin-top: 15px;
+
+			&:hover {
+				border: 3px solid black;
+				background-color: #1f2833;
+				color: #c5c6c7;
+				font-size: 38px;
+				transition: 0.5s;
+			}
+		}
 	}
 }
