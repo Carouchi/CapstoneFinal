@@ -5,6 +5,8 @@ import axios from "axios";
 
 import Auth from "./pages/auth";
 import Blog from "./pages/blog";
+import BlogDetail from "./pages/blog-detail";
+import NavigationComponent from "./navigation/navigation-container";
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -76,7 +78,6 @@ export default class App extends Component {
 				<Router>
 					<div>
 						<Switch>
-							<Route path="/blog" component={Blog} />
 							<Route
 								exact
 								path="/"
@@ -88,9 +89,18 @@ export default class App extends Component {
 									/>
 								)}
 							/>
-							{/* {this.state.loggedInStatus === "LOGGED_IN"
+							{this.state.loggedInStatus === "LOGGED_IN"
 								? this.authorizedPages()
-								: null} */}
+								: null}
+
+							<div>
+								<NavigationComponent
+									loggedInStatus={this.state.loggedInStatus}
+									handleSuccessfulLogout={this.handleSuccessfulLogout}
+								/>
+								<Route path="/blog" component={Blog} />
+								<Route path="/b/:slug" component={BlogDetail} />
+							</div>
 						</Switch>
 					</div>
 				</Router>
