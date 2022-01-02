@@ -25,7 +25,11 @@ export default class BlogForm extends Component {
 		axios
 			.post("", this.buildForm(), { withCredentials: true })
 			.then((response) => {
-				this.props.handleSuccessfulFormSubmission(response.data);
+				this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog); // add api endpoint where portfolio_blog is to pass to parent comp
+
+				this.setState({
+					title: "",
+				});
 			})
 			.catch((error) => {
 				console.log("handleSubmit blog error", error);
@@ -43,16 +47,18 @@ export default class BlogForm extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					type="text"
-					onChange={this.handleChange}
-					name="title"
-					placeholder="Blog Title"
-					value={this.state.title}
-				/>
+			<form onSubmit={this.handleSubmit} className="blog-form-wrapper">
+				<div className="column">
+					<input
+						type="text"
+						onChange={this.handleChange}
+						name="title"
+						placeholder="Blog Title"
+						value={this.state.title}
+					/>
+				</div>
 
-				<button>save</button>
+				<button className="btn">save</button>
 			</form>
 		);
 	}

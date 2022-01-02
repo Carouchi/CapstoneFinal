@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const handleSignOut = () => {
 	axios
@@ -24,7 +26,9 @@ class NavigationComponent extends Component {
 			<div className="nav-wrapper">
 				<div className="nav-user-name">MIKE CAROUCHI</div>
 				<div className="right-side-nav">
-					<a onClick={handleSignOut}>Sign Out</a>
+					<a className="signout-icon" onClick={handleSignOut}>
+						Sign Out <FontAwesomeIcon icon="sign-out-alt"></FontAwesomeIcon>
+					</a>
 				</div>
 			</div>
 		);

@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt, faNewspaper } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faSignOutAlt, faNewspaper);
 
 import Auth from "./pages/auth";
 import Blog from "./pages/blog";
@@ -98,7 +103,15 @@ export default class App extends Component {
 									loggedInStatus={this.state.loggedInStatus}
 									handleSuccessfulLogout={this.handleSuccessfulLogout}
 								/>
-								<Route path="/blog" component={Blog} />
+								<Route
+									path="/blog"
+									render={(props) => (
+										<Blog
+											{...props}
+											loggedInStatus={this.state.loggedInStatus}
+										/>
+									)}
+								/>
 								<Route path="/b/:slug" component={BlogDetail} />
 							</div>
 						</Switch>
