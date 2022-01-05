@@ -9,12 +9,22 @@ export default class BlogForm extends Component {
 		this.state = {
 			title: "",
 			content: "",
+			id: "",
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleRichTextEditorChange =
 			this.handleRichTextEditorChange.bind(this);
+	}
+
+	componentWillMount() {
+		if (this.props.editMode) {
+			this.setState({
+				id: this.props.id,
+				title: this.props.blog.title,
+			});
+		}
 	}
 
 	handleRichTextEditorChange(content) {
@@ -73,6 +83,12 @@ export default class BlogForm extends Component {
 				<div className="text-editor-column">
 					<RichTextEditor
 						handleRichTextEditorChange={this.handleRichTextEditorChange}
+						editMode={this.props.editMode}
+						contentToEdit={
+							this.props.editMode && this.props.blog.content
+								? this.props.blog.content
+								: null
+						}
 					/>
 				</div>
 				<div className="save-btn">
