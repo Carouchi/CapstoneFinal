@@ -11,7 +11,10 @@ export default class BlogDetail extends Component {
 		this.state = {
 			currentId: this.props.match.params.slug,
 			blogItem: {},
+			editMode: false,
 		};
+
+		this.handleEditClick = this.handleEditClick.bind(this);
 	}
 
 	getBlogItem() {

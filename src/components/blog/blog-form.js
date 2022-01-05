@@ -75,8 +75,9 @@ export default class BlogForm extends Component {
 						handleRichTextEditorChange={this.handleRichTextEditorChange}
 					/>
 				</div>
-
-				<button className="btn">save</button>
+				<div className="save-btn">
+					<button className="btn">save</button>
+				</div>
 			</form>
 		);
 	}
