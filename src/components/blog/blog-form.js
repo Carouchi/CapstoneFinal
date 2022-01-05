@@ -1,22 +1,33 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import RichTextEditor from "../forms/rich-text-editor";
 export default class BlogForm extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			title: "",
+			content: "",
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleRichTextEditorChange =
+			this.handleRichTextEditorChange.bind(this);
+	}
+
+	handleRichTextEditorChange(content) {
+		this.setState({
+			content: content,
+		});
 	}
 
 	buildForm() {
 		let formData = new FormData();
 
 		formData.append("[title]", this.state.title);
+		formData.append("[content]", this.state.content);
 
 		return formData;
 	}
@@ -25,11 +36,12 @@ export default class BlogForm extends Component {
 		axios
 			.post("", this.buildForm(), { withCredentials: true })
 			.then((response) => {
-				this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog); // add api endpoint where portfolio_blog is to pass to parent comp
-
 				this.setState({
 					title: "",
+					content: "",
 				});
+
+				this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog); // add api endpoint where portfolio_blog is to pass to parent comp
 			})
 			.catch((error) => {
 				console.log("handleSubmit blog error", error);
@@ -55,6 +67,12 @@ export default class BlogForm extends Component {
 						name="title"
 						placeholder="Blog Title"
 						value={this.state.title}
+					/>
+				</div>
+
+				<div className="text-editor-column">
+					<RichTextEditor
+						handleRichTextEditorChange={this.handleRichTextEditorChange}
 					/>
 				</div>
 
