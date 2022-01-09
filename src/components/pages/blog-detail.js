@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
-
 import BlogFeaturedImage from "../blog/blog-featured-image";
 import BlogForm from "../blog/blog-form";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default class BlogDetail extends Component {
 	constructor(props) {
@@ -61,6 +62,14 @@ export default class BlogDetail extends Component {
 
 						<div className="content">
 							<div>{ReactHtmlParser(content)}</div>
+						</div>
+						<div className="back-wrapper">
+							<button
+								className="back-button"
+								onClick={() => this.props.history.goBack()}
+							>
+								Back
+							</button>
 						</div>
 					</div>
 				);

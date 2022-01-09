@@ -65,7 +65,7 @@ export default class Login extends Component {
 					<input
 						type="email"
 						name="email"
-						placeholder="Your Email"
+						placeholder="Enter Your Email"
 						value={this.state.email}
 						onChange={this.handleChange}
 					/>
@@ -73,7 +73,7 @@ export default class Login extends Component {
 					<input
 						type="password"
 						name="password"
-						placeholder="Your Password"
+						placeholder="Enter Your Password"
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
