@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt, faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import {
+	faSignOutAlt,
+	faNewspaper,
+	faBackspace,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSignOutAlt, faNewspaper);
+library.add(faSignOutAlt, faNewspaper, faBackspace);
 
 import Auth from "./pages/auth";
 import Blog from "./pages/blog";

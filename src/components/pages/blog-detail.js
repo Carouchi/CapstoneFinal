@@ -17,6 +17,15 @@ export default class BlogDetail extends Component {
 		};
 
 		this.handleEditClick = this.handleEditClick.bind(this);
+		this.handleUpdateFormSubmission =
+			this.handleUpdateFormSubmission.bind(this);
+	}
+
+	handleUpdateFormSubmission(blog) {
+		this.setState({
+			blogItem: blog,
+			editMode: false,
+		});
 	}
 
 	handleEditClick() {
@@ -56,8 +65,6 @@ export default class BlogDetail extends Component {
 					<div className="content-container">
 						<div className="blog-tittle-wrapper">
 							<h1 onClick={this.handleEditClick}>{title}</h1>
-
-							<BlogFeaturedImage img={featured_image_url} />
 						</div>
 
 						<div className="content">

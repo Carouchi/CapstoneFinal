@@ -4,6 +4,27 @@
 	align-items: center;
 	position: relative;
 
+	.admin-blog-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 15px;
+
+		a {
+			margin-left: 10px;
+			cursor: pointer;
+		}
+
+		.backspace {
+			color: #c5c6c7;
+			transition: 0.5s ease-in-out;
+			&:hover {
+				color: red;
+				font-size: 20px;
+			}
+		}
+	}
+
 	.new-blog-link {
 		position: fixed;
 		right: 0;
@@ -28,7 +49,6 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		width: 800px;
 
 		.content {
 			font-size: 20px;
@@ -52,16 +72,6 @@
 		.blog-tittle-wrapper {
 			padding-bottom: 10px;
 			font-size: 20px;
-		}
-
-		.featured-image-wrapper {
-			img {
-				margin: 15px 0px;
-				width: 100%;
-				height: 350px;
-				border-radius: 15px;
-				object-fit: cover;
-			}
 		}
 	}
 }
